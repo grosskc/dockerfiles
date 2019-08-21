@@ -44,6 +44,20 @@ test-alpine-latex:
 	IMAGE=$(IMAGE) make -C test test-latex
 
 ################################################################################
+# Ubuntu images and tests                                                      #
+################################################################################
+.PHONY: ubuntu test-ubuntu
+ubuntu:
+	docker build \
+	    --tag pandoc/ubuntu-core:$(PANDOC_VERSION) \
+	    --build-arg pandoc_version=$(PANDOC_VERSION) \
+	    -f $(makefile_dir)/ubuntu/Dockerfile $(makefile_dir)
+
+test-ubuntu: IMAGE ?= pandoc/ubuntu-core:$(PANDOC_VERSION)
+test-ubuntu:
+	IMAGE=$(IMAGE) make -C test test-core
+
+################################################################################
 # Developer targets                                                            #
 ################################################################################
 .PHONY: lint
