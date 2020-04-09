@@ -10,6 +10,7 @@ RUN apk --no-cache add \
         gzip \
         librsvg \
         perl \
+        python3 \
         tar \
         wget \
         xz
@@ -27,9 +28,15 @@ RUN /root/install-texlive.sh
 
 COPY common/latex/install-tex-packages.sh /root/install-tex-packages.sh
 RUN /root/install-tex-packages.sh
-
+COPY common/latex/install-tex-packages-kcg.sh /root/install-tex-packages-kcg.sh
+RUN /root/install-tex-packages-kcg.sh
 RUN rm -f /root/texlive.profile \
           /root/install-texlive.sh \
           /root/install-tex-packages.sh
-
+RUN apk --no-cache add ghostscript
 WORKDIR /data
+
+# For testing only
+RUN apk --no-cache add bash
+RUN ln -s /usr/bin/python3 /usr/bin/python
+CMD [ "/bin/bash" ]
