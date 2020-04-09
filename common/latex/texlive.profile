@@ -1,7 +1,7 @@
 # texlive.profile written on Tue Feb  5 09:43:07 2019 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
-selected_scheme scheme-small
+selected_scheme scheme-medium
 TEXDIR         /opt/texlive/texdir
 TEXMFLOCAL     /opt/texlive/texmf-local
 TEXMFSYSVAR    /opt/texlive/texdir/texmf-var

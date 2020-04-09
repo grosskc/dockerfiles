@@ -36,6 +36,7 @@ alpine-latex:
 	    --tag pandoc/latex:$(PANDOC_VERSION) \
 	    --build-arg base_tag=$(PANDOC_VERSION) \
 	    -f $(makefile_dir)/alpine/latex/Dockerfile $(makefile_dir)
+	docker save "pandoc/latex:edge" > docker-pandoc-latest.tar && gzip docker-pandoc-latest.tar
 test-alpine: IMAGE ?= pandoc/core:$(PANDOC_VERSION)
 test-alpine:
 	IMAGE=$(IMAGE) make -C test test-core
