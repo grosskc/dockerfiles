@@ -29,7 +29,7 @@ RUN /root/install-texlive.sh
 COPY common/latex/install-tex-packages.sh /root/install-tex-packages.sh
 RUN /root/install-tex-packages.sh
 COPY common/latex/install-tex-packages-kcg.sh /root/install-tex-packages-kcg.sh
-RUN /root/install-tex-packages-kcg.sh
+RUN chmod 700 /root/install-tex-packages-kcg.sh && /root/install-tex-packages-kcg.sh
 RUN rm -f /root/texlive.profile \
           /root/install-texlive.sh \
           /root/install-tex-packages.sh
