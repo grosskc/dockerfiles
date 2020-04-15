@@ -39,7 +39,7 @@ alpine-latex:
 rs-pandoc:
 	tar cf assets.tar ./assets
 	docker build --tag rs/pandoc:latest -f $(makefile_dir)/Dockerfile $(makefile_dir)
-	# docker save "rs/pandoc:latest" > rs-pandoc-latest.tar
+	docker save "rs/pandoc:latest" > rs-pandoc-latest.tar
 	rm assets.tar
 test-alpine: IMAGE ?= pandoc/core:$(PANDOC_VERSION)
 test-alpine:
