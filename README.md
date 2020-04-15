@@ -2,7 +2,7 @@
 
 ```bash
 make rs-pandoc
-docker run --rm -it rs/pandoc
+docker run --rm --volume "`pwd`:/data" -it rs/pandoc
 
 # make updates to this docker image, and note the unique ID found in the command prompt
 

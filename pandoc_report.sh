@@ -3,15 +3,12 @@ MD="${1}"
 MD_TMP=".tmp-${MD}"
 PDF="${1%.*}.pdf"
 TEX="${1%.*}.tex"
-# YAML="${1%.*}.yaml"
-# YAML_TMP=".tmp-${YAML}"
-DATE=`date '+%Y%m%d'`
-YYYYMMDDD=`date '+%Y%m%d'`
-PDF="${YYYYMMDDD}-${PDF}"
-TEX="${YYYYMMDDD}-${TEX}"
 
 YYYYMMDD=$(python -c "from datetime import datetime as dt; n=dt.now(); print(n.strftime('%Y%m%d'))")
 DATE=$(python -c "from datetime import datetime as dt; n=dt.now(); print(n.strftime('%d-%b-%Y'))")
+PDF="${YYYYMMDDD}-${PDF}"
+TEX="${YYYYMMDDD}-${TEX}"
+
 cmd1="s/{{DATE}}/${DATE}/"
 cmd2="s/{{YYYYMMDD}}/${YYYYMMDD}/"
 sed -e $cmd1 -e $cmd2 < $MD > $MD_TMP
