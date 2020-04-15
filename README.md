@@ -1,23 +1,37 @@
-pandoc Dockerfiles
-================================================================================
+# Quickstart
+
+```bash
+make rs-pandoc
+docker run --rm -it rs/pandoc
+
+# make updates to this docker image, and note the unique ID found in the command prompt
+
+# commit updates to image
+docker commit UNIQUEID rs/pandoc # UNIQUEID is found in the running docker image or Docker's dashboard
+```
+
+# pandoc Dockerfiles
 
 [![CircleCI](https://circleci.com/gh/pandoc/dockerfiles/tree/master.svg?style=svg)](https://circleci.com/gh/pandoc/dockerfiles/tree/master)
 
 This repo contains a collection of Dockerfiles to build various
 [pandoc](https://pandoc.org/) container images.
 
-**Contents**
+## Contents
 
+- [Quickstart](#quickstart)
+- [pandoc Dockerfiles](#pandoc-dockerfiles)
+  - [Contents](#contents)
 - [Available Images](#available-images)
-    - [Current `latest` Tag](#current-latest-tag)
-    - [Alpine Linux](#alpine-linux)
+  - [Current `latest` Tag](#current-latest-tag)
+  - [Alpine Linux](#alpine-linux)
 - [Usage](#usage)
-    - [Basic Usage](#basic-usage)
-    - [Pandoc Scripts](#pandoc-scripts)
-    - [GitHub Action](#github-action)
+  - [Basic Usage](#basic-usage)
+  - [Pandoc Scripts](#pandoc-scripts)
+  - [GitHub Actions](#github-actions)
 - [Maintenance Notes](#maintenance-notes)
-    - [Adding a new Image Stack](#adding-a-new-image-stack)
-    - [Managing new Pandoc Releases](#managing-new-pandoc-releases)
+  - [Adding a new Image Stack](#adding-a-new-image-stack)
+  - [Managing new Pandoc Releases](#managing-new-pandoc-releases)
 - [License](#license)
 
 Available Images

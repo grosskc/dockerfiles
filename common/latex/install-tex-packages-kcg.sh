@@ -4,7 +4,7 @@
 ################################################################################
 # eisvogel reqs
 tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
-tlmgr install fontaxes 
+tlmgr install fontaxes lastpage textpos tikz-cd glossaries
 
 # additional useful packages
 tlmgr install cabin datatool glossaries mathdesign mfirstuc mhchem newpx newtx siunitx tex-gyre tex-gyre-math xfor
@@ -32,5 +32,5 @@ pip3 install git+git://github.com/sergiocorreia/panflute.git
 pip3 install git+git://github.com/ickc/pantable.git
 
 # pandoc-crossref
-wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2/linux-pandoc_2_9_2.tar.gz && \
-    gunzip linux-pandoc_2_9_2.tar.gz && tar -xf linux-pandoc_2_9_2.tar && mv pandoc-crossref /usr/bin/
+wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2a/pandoc-crossref-Linux-2.9.2.1.tar.xz && \
+    tar -x --xz -f pandoc-crossref-Linux-2.9.2.1.tar.xz && mv pandoc-crossref /usr/bin/

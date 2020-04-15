@@ -13,6 +13,7 @@ RUN apk --no-cache add \
          pkgconfig \
          zlib-dev
 
+
 # Install newer cabal-install version
 COPY cabal.root.config /root/.cabal/config
 RUN cabal update \

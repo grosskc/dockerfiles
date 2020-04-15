@@ -1,0 +1,91 @@
+% logo: ./assets/ResonantSciencesLogo
+% logo-width: 150
+% titlepage: true
+% titlepage-color: FFFFFF
+% titlepage-text-color: '000000'
+% titlepage-rule-color: C52628
+% titlepage-rule-height: 2
+% book: false
+% footer-center: "Resonant Sciences"
+
+
+\documentclass[$size$]{letter}
+\usepackage[letterpaper,left=1in,right=1in,top=1.5in,bottom=1in]{geometry}
+
+\usepackage{fixltx2e}
+
+% Adds microtypography features: character protrusion, for XeTeX.
+\usepackage{microtype}
+
+% Allows links.
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[bookmarks, colorlinks, breaklinks]{hyperref}
+\hypersetup{colorlinks=true, urlcolor=NavyBlue, linkcolor=NavyBlue}
+
+\urlstyle{rm}
+
+\pagestyle{empty}       % Remove page numbers.
+
+% \usepackage{fontspec}
+% \defaultfontfeatures{Mapping=tex-text}  % Sets quotation marks.
+% \setromanfont{TeX Gyre Pagella}
+% \setsansfont[BoldFont={Gill Sans SemiBold}, ItalicFont={Gill Sans Italic}]{Gill Sans}
+% \setmonofont[Scale=MatchLowercase]{Menlo}
+\usepackage{newpxtext,newpxmath,microtype}
+
+$if(letterhead)$
+\usepackage{wallpaper}
+\ThisULCornerWallPaper{1}{$letterhead$}
+$endif$
+
+% From default template
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\newcommand\shyp{\-}
+
+$if(draft)$
+\usepackage{draftwatermark}
+\SetWatermarkLightness{0.8}
+$endif$
+
+$if(date)$\date{$date$}$else$\date{\today}$endif$
+
+\begin{document}
+
+\begin{letter}{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$subject$$endif$}
+
+$if(subject)$\bf{Subject:} $subject$ $endif$
+
+\opening{$opening$:}
+
+$body$
+
+$if(sig.include)$
+\begin{minipage}[t]{6.5in}
+Sincerely,\\
+
+\vspace{0.1in}
+
+$if(sig.sign)$
+    \vspace{-0.2in}\includegraphics[height=0.5in]{$sig.file$}\\
+$else$
+    \vspace{0.2in}
+$endif$
+
+$sig.name$\\
+$sig.title$
+\end{minipage}
+$endif$
+
+$if(cc)$
+\vspace{0.15in}
+\cc{$for(cc)$$cc$$sep$, $endfor$}
+$endif$
+
+$if(encl)$
+\encl{$for(encl)$$encl$$sep$\\$endfor$}
+$endif$
+
+\end{letter}
+
+\end{document}

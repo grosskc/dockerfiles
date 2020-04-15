@@ -1,0 +1,30 @@
+---
+company: Resonant Sciences, LLC
+mainfont: texgyrepagella-regular.otf
+mainfontoptions:
+  - BoldFont=texgyrepagella-bold.otf
+  - ItalicFont=texgyrepagella-italic.otf
+  - BoldItalicFont=texgyrepagella-bolditalic.otf
+mathfont: texgyrepagella-math.otf
+sansfont: texgyreadventor-regular.otf
+sansfontoptions:
+  - BoldFont=texgyreadventor-bold.otf
+  - ItalicFont=texgyreadventor-italic.otf
+  - BoldItalicFont=texgyreadventor-bolditalic.otf
+titlepage: true
+titlepage-background: assets/Template/RS-TitlePageBackground.pdf
+titlepage-color: FFFFFF
+titlepage-text-color: '000000'
+titlepage-rule-color: 'C62B2A'
+titlepage-rule-height: 2
+float-placement-figure: htbp
+geometry:
+  - paperwidth=8.5in
+  - paperheight=11in
+  - margin=1in
+figureTitle: Figure
+figPrefix: ""
+tableTitle: Table
+tblPrefix: ""
+eqnPrefix: ""
+---
