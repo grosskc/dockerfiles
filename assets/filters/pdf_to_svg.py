@@ -14,25 +14,31 @@ import urllib
 import re
 from pandocfilters import toJSONFilter, Str, Para, Image
 
-def svg_to_pdf(key, value, fmt, meta):
+def pdf_to_svg(key, value, fmt, meta):
     if key == 'Image':
-        attrs, alt, [src, title] = value
-
-        mimet, _ = mimetypes.guess_type(src)
-        if (mimet == 'application/pdf'):
-            base_name, _ = os.path.splitext(src)
-            new_name = os.path.realpath(base_name + ".svg")
-            src = os.path.realpath(src)
-            try:
-                mtime = os.path.getmtime(new_name)
-            except OSError:
-                mtime = -1
-            if mtime < os.path.getmtime(src):
-                cmd_line = ['dvisvgm --pdf ', src]
-                sys.stdout.write("Running %s\n" % " ".join(cmd_line))
-                subprocess.call(cmd_line, stdout=sys.stderr.fileno())
-            return Image(attrs, alt, [new_name, title])
+        print(value)
+        attrs, alt, [fn_pdf, title] = value
+        try:
+            mimet, _ = mimetypes.guess_type(fn_pdf)
+            if (mimet == 'application/pdf'):
+                fn_pdf = os.path.realpath(fn_pdf)
+                base_name, _ = os.path.splitext(fn_pdf)
+                fn_svg = base_name + ".svg"
+                print(f"In: {fn_pdf}; Out: {fn_svg}")
+                try:
+                    mtime = os.path.getmtime(fn_svg)
+                except OSError:
+                    mtime = -1
+                if mtime < os.path.getmtime(fn_pdf):
+                    cmd_line = ['dvisvgm', '--stdout', '--pdf', fn_pdf, ">", fn_svg]
+                    print("Running %s\n" % " ".join(cmd_line))
+                    out = subprocess.call(cmd_line)
+                    retVal = Image(attrs, alt, [fn_svg, title])
+                    print(retVal)
+                    return retVal
+        except:
+            return Image(attrs, alt, [fn_pdf, title])
 
 
 if __name__ == "__main__":
-    toJSONFilter(svg_to_pdf)
+    toJSONFilter(pdf_to_svg)

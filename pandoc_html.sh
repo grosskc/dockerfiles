@@ -27,9 +27,9 @@ cmd2="s/{{YYYYMMDD}}/${YYYYMMDD}/"
 sed -e $cmd1 -e $cmd2 < $MD > $MD_TMP
 
 # Note that I am using my own forked version of GladTex, so that equation SVG images are embedded and not formatted like links
-CMD1="pandoc --from markdown+raw_tex --to json --filter /root/assets/filters/filter_mermaid.py --filter pantable --filter /root/assets/filters/comments.py --filter /root/assets/filters/metavars.py --filter pandoc-crossref --filter pandoc-citeproc --strip-comments --listings --csl /root/assets/ieee.csl --filter /root/assets/filters/pdf_to_svg.py --filter gladtex --output ${JSON} /root/assets/Template/RS-Template-Report.yaml ${MD_TMP}"
+CMD1="pandoc --from markdown+raw_tex --to json --default-image-extension=svg --filter /root/assets/filters/filter_mermaid.py --filter pantable --filter /root/assets/filters/comments.py --filter /root/assets/filters/metavars.py --filter pandoc-crossref --filter pandoc-citeproc --strip-comments --listings --csl /root/assets/ieee.csl --filter gladtex --output ${JSON} /root/assets/Template/RS-Template-Report.yaml ${MD_TMP}"
 
-CMD2="pandoc --from json --to html5 --self-contained --standalone --css ${CSS} --highlight-style ${THEME}  --section-divs --template=/root/assets/Template/RS-default.html ${JSON} --output ${HTML}"
+CMD2="pandoc --from json --to html5 --self-contained --standalone --css ${CSS} --highlight-style ${THEME} --section-divs --template=/root/assets/Template/RS-default.html ${JSON} --output ${HTML}"
 
 echo $CMD1
 $CMD1

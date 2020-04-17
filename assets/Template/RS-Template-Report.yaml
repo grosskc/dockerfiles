@@ -12,7 +12,7 @@ sansfontoptions:
   - ItalicFont=texgyreadventor-italic.otf
   - BoldItalicFont=texgyreadventor-bolditalic.otf
 titlepage: true
-titlepage-background: assets/Template/RS-TitlePageBackground.pdf
+titlepage-background: /root/assets/Template/RS-TitlePageBackground.pdf
 titlepage-color: FFFFFF
 titlepage-text-color: '000000'
 titlepage-rule-color: 'C62B2A'
