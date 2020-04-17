@@ -15,4 +15,3 @@ RUN cd GladTeX && python3 setup.py install && cd .. && rm -rf GladTeX
 # For testing only
 CMD [ "/bin/bash" ]
 WORKDIR /data
-# ENTRYPOINT ["docker-entrypoint.sh"]
