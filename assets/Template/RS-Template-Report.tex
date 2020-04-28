@@ -92,14 +92,10 @@ $endfor$
 % usepackage
 % -----------------------------------------------------------------------------
 \usepackage{bm}
-% \usepackage{unicode-math}
-% \usepackage{amsmath}
-% \usepackage{amssymb}
 \usepackage{mhchem}
 \usepackage[separate-uncertainty=true, group-separator={,}]{siunitx}
-% \usepackage[acronym, smallcaps]{glossaries}
-% \usepackage{listings}
-% \usepackage{needspace}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
 
 $if(beamer)$
 $if(background-image)$
