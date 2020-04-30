@@ -41,10 +41,10 @@
 
   ```bash
   # make PDF report
-   pandoc_report.sh file.md
+  /root/bin/pandoc_report.sh file.md
 
-   # make self-contained HTML document
-   pandoc_html.sh file.md
+  # make self-contained HTML document
+  /root/bin/pandoc_html.sh file.md
   ```
 
 For more information on how to build a pandoc docker image, see the official [Docker repo for Pandoc](https://github.com/pandoc/dockerfiles).
