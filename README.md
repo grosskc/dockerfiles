@@ -17,7 +17,7 @@
   docker load --input /path/to/ownCloud/RS-EOIR-Group/Templates/dockerfiles/rs-pandoc-latest.tar.gz
   ```
 
-- Now run the docker environment, making your current working directory available in the Docker's `/data` folder.
+- Now run the docker environment, making your current working directory available in the Docker's `/data` folder. This will launch your shell into a linux environment with the bash command line interpreter.
 
   - At a unix / linux terminal
 
@@ -31,7 +31,7 @@
     docker run --rm --volume ${PWD}:/data -it rs/pandoc
     ```
 
-- You should be able to compile markdown documents in your current directory to PDF files and HTML files.
+- You should now be able to compile markdown documents in your current directory to PDF files and HTML files using the pandoc executable within this Docker environment. (This environment also comes with a fairly complete LaTeX distribution installed for converting MD to PDF.)
 
   ```bash
   pandoc file.md -o file.pdf
