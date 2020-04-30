@@ -17,6 +17,8 @@
   docker load --input /path/to/ownCloud/RS-EOIR-Group/Templates/dockerfiles/rs-pandoc-latest.tar.gz
   ```
 
+- Open your terminal application and change to the directory in which your markdown file lives. You can use the integrated terminal within VS Code, for example.
+
 - Now run the docker environment, making your current working directory available in the Docker's `/data` folder. This will launch your shell into a linux environment with the bash command line interpreter.
 
   - At a unix / linux terminal
