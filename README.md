@@ -2,7 +2,7 @@
 
 - Install docker for [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) or [Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac) or a flavor of Linux ([Ubuntu](https://docs.docker.com/engine/install/ubuntu/#installation-methods), [Fedora](https://docs.docker.com/engine/install/fedora/), [CentOS](https://docs.docker.com/engine/install/centos/)).
 
-- Clone the modified docker [GitHub repository](https://github.com/grosskc/dockerfiles) and build the Docker image. You'll need `git` and `make` in order to complete this step.
+- Clone the modified docker [GitHub repository](https://github.com/grosskc/dockerfiles) and build the Docker image. You'll need `git` and `make` in order to complete this step. This takes awhile and is a one-time step.
 
   ```bash
   git clone https://github.com/grosskc/dockerfiles.git
@@ -10,7 +10,7 @@
   make rs-pandoc
   ```
 
-- Alternatively, install the docker image so it is available for use on your computer.
+- Alternatively, the step above can be bypassed by installing the following docker image, making it available for use on your computer.
 
   ```bash
   # make it available to docker
@@ -19,9 +19,17 @@
 
 - Now run the docker environment, making your current working directory available in the Docker's `/data` folder.
 
-  ```bash
-  docker run --rm --volume "`pwd`:/data" -it rs/pandoc
-  ```
+  - At a unix / linux terminal
+
+    ```bash
+    docker run --rm --volume "`pwd`:/data" -it rs/pandoc
+    ```
+
+  - On Windows in a PowerShell terminal
+
+    ```bash
+    docker run --rm --volume ${PWD}:/data -it rs/pandoc
+    ```
 
 - You should be able to compile markdown documents in your current directory to PDF files and HTML files.
 
@@ -33,10 +41,10 @@
 
   ```bash
   # make PDF report
-   make_pandoc_pdf.sh file.md
+   pandoc_report.sh file.md
 
    # make self-contained HTML document
-   make_pandoc_html.sh file.md
+   pandoc_html.sh file.md
   ```
 
 For more information on how to build a pandoc docker image, see the official [Docker repo for Pandoc](https://github.com/pandoc/dockerfiles).
