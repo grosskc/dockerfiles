@@ -49,4 +49,8 @@
   /root/bin/pandoc_html.sh file.md
   ```
 
+- Below is a screenshot of what successfully converting this README.md file should look like
+
+![Screenshot of converting this README.md into an HTML file.](assets/Screenshot.png)
+
 For more information on how to build a pandoc docker image, see the official [Docker repo for Pandoc](https://github.com/pandoc/dockerfiles).
