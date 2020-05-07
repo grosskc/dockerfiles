@@ -37,9 +37,9 @@ alpine-latex:
 	    --build-arg base_tag=$(PANDOC_VERSION) \
 	    -f $(makefile_dir)/alpine/latex/Dockerfile $(makefile_dir)
 rs-pandoc:
+	# docker build --tag pandoc/latex:$(PANDOC_VERSION) --build-arg base_tag=$(PANDOC_VERSION) -f $(makefile_dir)/alpine/latex/Dockerfile $(makefile_dir)
 	tar cf assets.tar ./assets
-	docker build --tag rs/pandoc:latest -f $(makefile_dir)/Dockerfile $(makefile_dir) && \
-	docker save "rs/pandoc:latest" > rs-pandoc-latest.tar && gzip -f rs-pandoc-latest.tar
+	docker build --tag rs/pandoc:latest -f $(makefile_dir)/Dockerfile $(makefile_dir) && docker save "rs/pandoc:latest" > rs-pandoc-latest.tar && gzip -f rs-pandoc-latest.tar
 	rm assets.tar
 test-alpine: IMAGE ?= pandoc/core:$(PANDOC_VERSION)
 test-alpine:

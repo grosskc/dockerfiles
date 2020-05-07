@@ -23,8 +23,14 @@ geometry:
   - paperheight=11in
   - margin=1in
 figureTitle: Figure
-figPrefix: ""
+figPrefix: Fig
 tableTitle: Table
-tblPrefix: ""
-eqnPrefix: ""
+tblPrefix: Tbl
+eqnPrefix: Eq
+pandoc-latex-admonition:
+  # order is important
+    - color: firebrick
+      classes: [warning]
+    - color: gray
+      classes: [admonition]
 ---

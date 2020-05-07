@@ -929,7 +929,9 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \begin{singlespace}
+  \noindent {\Large \textsf{$for(author)$$author$$sep$\newline $endfor$} \vskip 0.6em \textsf{$date$}}
+  \end{singlespace}
   \vfill
 
 }
@@ -978,10 +980,13 @@ $if(review)$
   \begin{center} {\large \textbf{\textsf{REVIEW}}} \end{center} \vspace{2em}
   $reviewText$ \newline
   \begin{singlespace}
-  $if(reviewerName)$ $reviewerName$ $endif$\newline
-  $if(reviewerTitle)$ $reviewerTitle$ $endif$ \newline
-  $if(reviewerCompany)$ $reviewerCompany$ $endif$ \newline
-  $if(reviewDate)$ $reviewDate$ $endif$
+  $if(reviewerBlock)$
+    $for(reviewerBlock)$$reviewerBlock$$sep$\newline $endfor$
+  $endif$
+  % $if(reviewerName)$ $reviewerName$ $endif$\newline
+  % $if(reviewerTitle)$ $reviewerTitle$ $endif$ \newline
+  % $if(reviewerCompany)$ $reviewerCompany$ $endif$ \newline
+  % $if(reviewDate)$ $reviewDate$ $endif$
   \end{singlespace}
 $endif$
 
